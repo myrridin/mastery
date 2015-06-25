@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @scheduled_course.course %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @scheduled_course.size %>
+</p>
+
+<p>
+  <strong>Scheduled on:</strong>
+  <%= @scheduled_course.scheduled_on %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @scheduled_course.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @scheduled_course.user %>
+</p>
+
+<%= link_to 'Edit', edit_scheduled_course_path(@scheduled_course) %> |
+<%= link_to 'Back', scheduled_courses_path %>

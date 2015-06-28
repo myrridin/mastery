@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625010353) do
+ActiveRecord::Schema.define(version: 20150628175800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150625010353) do
 
   add_index "courses", ["user_id"], name: "index_courses_on_user_id", using: :btree
 
-  create_table "scheduled_courses", force: :cascade do |t|
+  create_table "offerings", force: :cascade do |t|
     t.integer  "course_id"
     t.integer  "size"
     t.datetime "scheduled_on"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150625010353) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "scheduled_courses", ["user_id"], name: "index_scheduled_courses_on_user_id", using: :btree
+  add_index "offerings", ["user_id"], name: "index_offerings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -83,5 +83,5 @@ ActiveRecord::Schema.define(version: 20150625010353) do
   end
 
   add_foreign_key "courses", "users"
-  add_foreign_key "scheduled_courses", "users"
+  add_foreign_key "offerings", "users"
 end

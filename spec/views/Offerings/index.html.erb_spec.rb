@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "scheduled_courses/index", type: :view do
+RSpec.describe "Offerings/index", type: :view do
   before(:each) do
-    assign(:scheduled_courses, [
-      ScheduledCourse.create!(
+    assign(:Offerings, [
+      Offering.create!(
         :course => "",
         :size => "",
         :scheduled_on => "",
         :location => "",
         :user => nil
       ),
-      ScheduledCourse.create!(
+      Offering.create!(
         :course => "",
         :size => "",
         :scheduled_on => "",
@@ -20,7 +20,7 @@ RSpec.describe "scheduled_courses/index", type: :view do
     ])
   end
 
-  it "renders a list of scheduled_courses" do
+  it "renders a list of Offerings" do
     render
     assert_select "tr>td", :text => "".to_s, :count => 2
     assert_select "tr>td", :text => "".to_s, :count => 2

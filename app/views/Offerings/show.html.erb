@@ -2,28 +2,28 @@
 
 <p>
   <strong>Course:</strong>
-  <%= @scheduled_course.course %>
+  <%= @offering.course %>
 </p>
 
 <p>
   <strong>Size:</strong>
-  <%= @scheduled_course.size %>
+  <%= @offering.size %>
 </p>
 
 <p>
   <strong>Scheduled on:</strong>
-  <%= @scheduled_course.scheduled_on %>
+  <%= @offering.scheduled_on %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <%= @scheduled_course.location %>
+  <%= @offering.location %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @scheduled_course.user %>
+  <%= @offering.user %>
 </p>
 
-<%= link_to 'Edit', edit_scheduled_course_path(@scheduled_course) %> |
+<%= link_to 'Edit', edit_scheduled_course_path(@offering) %> |
 <%= link_to 'Back', scheduled_courses_path %>

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "scheduled_courses/show", type: :view do
+RSpec.describe "Offerings/show", type: :view do
   before(:each) do
-    @scheduled_course = assign(:scheduled_course, ScheduledCourse.create!(
+    @offering = assign(:offering, Offering.create!(
       :course => "",
       :size => "",
       :scheduled_on => "",

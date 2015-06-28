@@ -1,4 +1,4 @@
-class ScheduledCourse < ActiveRecord::Base
+class Offering < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 end

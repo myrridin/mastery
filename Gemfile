@@ -13,6 +13,7 @@ gem "omniauth-google-oauth2"
 group :development do
   gem "guard"
   gem "guard-rails"
+  gem "awesome_print"
 end
 
 group :development, :test do

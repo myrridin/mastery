@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20150628175800) do
 
   create_table "class_signups", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "scheduled_course_id"
+    t.integer  "offering_id"
     t.datetime "signed_up_on"
     t.boolean  "attended"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "courses", force: :cascade do |t|

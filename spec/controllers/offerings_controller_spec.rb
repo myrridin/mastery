@@ -37,10 +37,10 @@ RSpec.describe OfferingsController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all Offerings as @Offerings" do
+    it "assigns all offerings as @offerings" do
       scheduled_course = Offering.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:Offerings)).to eq([scheduled_course])
+      expect(assigns(:offerings)).to eq([scheduled_course])
     end
   end
 
@@ -149,7 +149,7 @@ RSpec.describe OfferingsController, type: :controller do
       }.to change(Offering, :count).by(-1)
     end
 
-    it "redirects to the Offerings list" do
+    it "redirects to the offerings list" do
       scheduled_course = Offering.create! valid_attributes
       delete :destroy, {:id => scheduled_course.to_param}, valid_session
       expect(response).to redirect_to(scheduled_courses_url)

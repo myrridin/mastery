@@ -4,35 +4,35 @@ RSpec.describe OfferingsController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/Offerings").to route_to("scheduled_courses#index")
+      expect(:get => "/offerings").to route_to("scheduled_courses#index")
     end
 
     it "routes to #new" do
-      expect(:get => "/Offerings/new").to route_to("scheduled_courses#new")
+      expect(:get => "/offerings/new").to route_to("scheduled_courses#new")
     end
 
     it "routes to #show" do
-      expect(:get => "/Offerings/1").to route_to("scheduled_courses#show", :id => "1")
+      expect(:get => "/offerings/1").to route_to("scheduled_courses#show", :id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/Offerings/1/edit").to route_to("scheduled_courses#edit", :id => "1")
+      expect(:get => "/offerings/1/edit").to route_to("scheduled_courses#edit", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/Offerings").to route_to("scheduled_courses#create")
+      expect(:post => "/offerings").to route_to("scheduled_courses#create")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/Offerings/1").to route_to("scheduled_courses#update", :id => "1")
+      expect(:put => "/offerings/1").to route_to("scheduled_courses#update", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/Offerings/1").to route_to("scheduled_courses#update", :id => "1")
+      expect(:patch => "/offerings/1").to route_to("scheduled_courses#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/Offerings/1").to route_to("scheduled_courses#destroy", :id => "1")
+      expect(:delete => "/offerings/1").to route_to("scheduled_courses#destroy", :id => "1")
     end
 
   end

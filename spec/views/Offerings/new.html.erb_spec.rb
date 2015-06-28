@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Offerings/new", type: :view do
+RSpec.describe "offerings/new", type: :view do
   before(:each) do
     assign(:offering, Offering.new(
       :course => "",

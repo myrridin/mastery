@@ -12,9 +12,6 @@ class OfferingsController < ApplicationController
     @offering = Offering.new
   end
 
-  # def edit
-  # end
-
   def create
     @offering = Offering.new(scheduled_course_params)
 
@@ -25,24 +22,11 @@ class OfferingsController < ApplicationController
     end
   end
 
-  # def update
-  #   if @offering.update(scheduled_course_params)
-  #     redirect_to @offering, notice: 'Scheduled course was successfully updated.'
-  #   else
-  #     render :edit
-  #   end
-  # end
-
-  # def destroy
-  #   @offering.destroy
-  #   redirect_to scheduled_courses_url, notice: 'Scheduled course was successfully destroyed.'
-  # end
-
   # Main user dashboard
   def dashboard
     @offerings = {
         signed_up: current_user.signed_up_for,
-        starting_soon: Offering.available.order(:scheduled_on).limit(5)
+        starting_soon: Offering.available.order(:scheduled_at).limit(5)
     }
   end
 
@@ -52,6 +36,6 @@ class OfferingsController < ApplicationController
     end
 
     def scheduled_course_params
-      params.require(:offering).permit(:course, :size, :scheduled_on, :location, :user_id)
+      params.require(:offering).permit(:course, :size, :scheduled_at, :location, :user_id)
     end
 end

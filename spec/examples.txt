@@ -1,0 +1,7 @@
+example_id                              | status  | run_time        |
+--------------------------------------- | ------- | --------------- |
+./spec/models/class_signup_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/models/course_spec.rb[1:1]       | pending | 0.00001 seconds |
+./spec/models/offering_spec.rb[1:1]     | pending | 0.00001 seconds |
+./spec/models/user_spec.rb[1:1]         | pending | 0 seconds       |
+./spec/models/waiting_list_spec.rb[1:1] | pending | 0.00001 seconds |

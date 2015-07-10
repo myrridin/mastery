@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="glyphicon glyphicon-th-list"></span>
+      </button>
+      <a class="navbar-brand" href="/">Mastery</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Dashboard</a></li>
+        <li><a href="/offerings/">All Offerings</a></li>
+        <li><a href="/users/portfolio">My Portfolio</a></li>
+        <% if current_user.is_admin? %>
+          <li><a href="/courses/">Courses</a></li>
+          <li><a href="/admin/dashboard">Admin Dashboard</a></li>
+        <% end %>
+      </ul>
+      <div class="navbar-text pull-right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <% end %>
+      </div>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

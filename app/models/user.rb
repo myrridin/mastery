@@ -27,14 +27,30 @@ class User < ActiveRecord::Base
     student_offerings.where('offerings.scheduled_at > ?', Time.now)
   end
 
+  def signed_up_for? offering
+    ClassSignup.where(user_id: id, offering_id: offering.id).count > 0
+  end
+
   def sign_up_for(offering)
-    ClassSignup.where(user_id: id, offering_id: offering.id).first_or_create
-    # TODO This isn't always necessary. This whole method should get a little more robust
-    offering.update_attribute(:signed_up, offering.students.count)
+    unless signed_up_for? offering
+      ClassSignup.create(user_id: id, offering: offering)
+      offering.update_attribute(:signed_up, offering.students.count)
+    end
+  end
+
+  def drop_offering(offering)
+    if signed_up_for? offering
+      ClassSignup.find_by(user_id: id, offering: offering).destroy
+      offering.update_attribute(:signed_up, offering.students.count)
+    end
   end
 
   def is_admin?
     admin_flag
+  end
+
+  def is_instructor?
+    instructor_flag
   end
 
   def self.instructors

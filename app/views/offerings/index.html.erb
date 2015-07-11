@@ -3,10 +3,9 @@
   <thead>
     <tr>
       <th>Course</th>
-      <th>Size</th>
-      <th>Scheduled on</th>
-      <th>Location</th>
-      <th>User</th>
+      <th>Start Time</th>
+      <th>Signed Up</th>
+      <th>Wait List</th>
       <th></th>
     </tr>
   </thead>
@@ -17,5 +16,6 @@
 </table>
 
 <br>
-
-<%= link_to "Schedule a class", new_offering_path, class: "btn btn-primary" %>
+<% if current_user.is_admin? %>
+  <%= link_to "Schedule a class", new_offering_path, class: "btn btn-primary" %>
+<% end %>

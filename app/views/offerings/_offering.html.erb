@@ -1,8 +1,17 @@
 <tr>
   <td><%= offering.course %></td>
-  <td><%= offering.size %></td>
-  <td><%= offering.scheduled_at %></td>
-  <td><%= offering.location %></td>
-  <td><%= offering.user %></td>
-  <td><%= link_to "Sign up for this course", sign_up_for_offering_path(offering) %> <%= link_to 'Show', offering %></td>
+  <td><%= offering.scheduled_at.strftime('%h %d %l:%M %p') %></td>
+  <td><%= offering.signed_up %>/<%= offering.size %></td>
+  <td>0/0</td>
+  <td class="text-right">
+    <% if current_user.signed_up_for? offering %>
+      <%= link_to "Drop class", drop_offering_path(offering), class: "btn btn-danger", data: {confirm: "Are you sure you want to drop this class?"} %>
+    <% else %>
+      <%= link_to "Sign up", sign_up_for_offering_path(offering), class: "btn btn-success" %>
+    <% end %>
+    <%= link_to "Details", offering, class: "btn btn-default" %>
+    <% if current_user.is_admin? %>
+      <%= link_to "Delete", offering_path(offering), method: :delete, data: {confirm: "Are you sure you want to delete this class?"}, class: "btn btn-danger" %>
+    <% end %>
+  </td>
 </tr>

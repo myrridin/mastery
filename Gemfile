@@ -9,8 +9,11 @@ gem "jquery-rails", "~> 4.0.0"
 gem "therubyracer", "~> 0.12.0"
 gem "devise", "~> 3.5.0"
 gem "omniauth-google-oauth2", "~> 0.2.0"
+gem "simple_form", "~> 3.1.0"
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "guard"
   gem "guard-rails"
   gem "awesome_print"

@@ -1,41 +1,11 @@
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-      <ul>
-      <% @course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.label :section %><br>
-    <%= f.text_field :section, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :number %><br>
-    <%= f.text_field :number, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :length, "Length in minutes" %><br>
-    <%= f.text_field :length %>
-  </div>
-  <div class="form-group">
-    <%= f.label :user_id, "Teacher" %><br>
-    <%= f.collection_select(:user_id, User.instructors, :id, :name, include_blank: "None") %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@course) do |f| %>
+  <%= f.input :section %>
+  <%= f.input :number %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :length, label: "Length in minutes" %>
+  <%= f.label "Teacher" %>
+  <%= f.collection_select(:user_id, User.instructors, :id, :name, {include_blank: "None"}, {class: "form-control"}) %><br />
+  <%= f.button :submit, class: "btn btn-success" %>
+  <%= link_to "Cancel", courses_path, class: "btn btn-danger" %>
 <% end %>

@@ -1,5 +1,5 @@
 class OfferingsController < ApplicationController
-  before_action :set_scheduled_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_scheduled_course, only: [:show, :update, :destroy]
 
   def index
     @offerings = Offering.all

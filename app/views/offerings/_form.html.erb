@@ -1,37 +1,9 @@
-<%= form_for(@offering) do |f| %>
-  <% if @offering.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@offering.errors.count, "error") %> prohibited this scheduled_course from being saved:</h2>
-
-      <ul>
-      <% @offering.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :course %><br>
-    <%= f.text_field :course %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
-    <%= f.label :scheduled_at %><br>
-    <%= f.text_field :scheduled_at %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for(@offering) do |f| %>
+  <%= f.label "Course" %>
+  <%= f.collection_select(:course_id, Course.all, :id, :to_s, {}, {class: "form-control"}) %><br />
+  <%= f.input :size %>
+  <%= f.input :scheduled_at, label: "Start Time", as: :date_time_picker %>
+  <%= f.input :location %>
+  <%= f.button :submit, class: "btn btn-success" %>
+  <%= link_to "Cancel", offerings_path, class: "btn btn-danger" %>
 <% end %>

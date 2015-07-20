@@ -1,1 +1,38 @@
-<%= debug @offerings %>
+<h1>Listing Offerings</h1>
+<h2>Signed Up</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Course</th>
+    <th>Start Time</th>
+    <th>Signed Up</th>
+    <th>Wait List</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @offerings[:signed_up].each do |o| %>
+      <%= render partial: 'offering', object: o %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Starting Soon</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Course</th>
+    <th>Start Time</th>
+    <th>Signed Up</th>
+    <th>Wait List</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @offerings[:starting_soon].each do |o| %>
+      <%= render partial: 'offering', object: o %>
+    <% end %>
+  </tbody>
+</table>

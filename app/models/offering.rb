@@ -17,4 +17,16 @@ class Offering < ActiveRecord::Base
   def empty_seats?
     size > signed_up
   end
+
+  # DEBUGGING ONLY
+  def self._create_random
+    o = Offering.new
+    o.course = Course.all.sample
+    o.size = Random.rand(20) + 10
+    o.scheduled_at = Date.today + (rand(7)).days
+    o.location = ['4th floor Cafe', '5th floor boardroom', 'Washington Station'].sample
+    o.user = User.instructors.sample
+    o.signed_up = 0
+    o.save
+  end
 end

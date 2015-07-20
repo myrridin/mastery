@@ -3,7 +3,7 @@ class OfferingsController < ApplicationController
   before_filter :set_offering, only: [:show, :sign_up, :drop, :destroy]
 
   def index
-    @offerings = Offering.where("scheduled_at >= ?", Time.now)
+    @offerings = Offering.where("scheduled_at >= ?", Time.now).order(:scheduled_at).paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -17,28 +17,28 @@ class OfferingsController < ApplicationController
     @offering = Offering.find params[:id]
 
     if @offering.signed_up == @offering.size
-      redirect_to offerings_path, alert: "Sorry, but that class appears to be full."
+      redirect_to :back, alert: "Sorry, but that class appears to be full."
       return
     end
 
     if current_user.signed_up_for? @offering
-      redirect_to offerings_path, alert: "You're already signed up for that course."
+      redirect_to :back, alert: "You're already signed up for that course."
       return
     end
 
     if current_user.sign_up_for(@offering)
-      redirect_to offerings_path, notice: "You have successfully signed up for this class."
+      redirect_to :back, notice: "You have successfully signed up for this class."
     else
-      redirect_to offerings_path, alert: "There was an error signing up for that class. Please try again."
+      redirect_to :back, alert: "There was an error signing up for that class. Please try again."
     end
   end
 
   def drop
     if current_user.signed_up_for? @offering
       current_user.drop_offering @offering
-      redirect_to offerings_path, notice: "You have successfully dropped this class."
+      redirect_to :back, notice: "You have successfully dropped this class."
     else
-      redirect_to offerings_path, alert: "You were not signed up for that class."
+      redirect_to :back, alert: "You were not signed up for that class."
     end
   end
 

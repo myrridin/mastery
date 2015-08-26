@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe User, type: :model do
 
   let(:user) { FactoryGirl.build_stubbed :user }

@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Offering, type: :model do
 
   let(:offering) { FactoryGirl.build_stubbed :offering }

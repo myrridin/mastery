@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe Course, type: :model do
   let(:course) { FactoryGirl.build_stubbed :course }
 
